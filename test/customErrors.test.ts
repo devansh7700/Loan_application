@@ -1,7 +1,5 @@
-import { NotFoundError } from "../src/api/v1/errors/NotFoundError";
-import { BadRequestError } from "../src/api/v1/errors/BadRequestError";
-import { UnauthorizedError } from "../src/api/v1/errors/UnauthorizedError";
-import { ForbiddenError } from "../src/api/v1/errors/ForbiddenError";
+import { AppError, NotFoundError, ForbiddenError, BadRequestError, UnauthorizedError } from "../src/api/v1/errors/AppError";
+
 import { HTTP_STATUS } from "../src/constants/httpStatus";
 
 describe("Custom Error Classes", () => {

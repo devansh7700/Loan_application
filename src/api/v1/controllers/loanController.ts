@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction} from "express";
 import { HTTP_STATUS } from "../../../constants/httpStatus";
-import { NotFoundError } from "../errors/NotFoundError";
-import { BadRequestError } from "../errors/BadRequestError";
+import { NotFoundError, BadRequestError } from "../errors/AppError";
 
 
 export const createLoan = (req: Request, res: Response) => {
