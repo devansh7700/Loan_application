@@ -3,6 +3,8 @@ import morgan from "morgan";
 import loanRoutes from "./api/v1/routes/loanRoutes";
 import { errorHandler } from "./api/v1/middleware/errorHandler";
 import { loggerMiddleware } from "./api/v1/middleware/loggerMiddleware";
+import userRoutes from "./api/v1/routes/userroutes";
+
 const app = express();
 
 // Middleware
@@ -15,6 +17,8 @@ app.use("/api/v1", loanRoutes);
 
 // global error handler
 app.use(errorHandler);
+
+app.use("/api/v1/users", userRoutes);
 
 // Root route
 app.get("/", (req, res) => {
