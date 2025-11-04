@@ -1,4 +1,4 @@
-import { AppError } from "./Apperror";
+import { AppError } from "./AppError";
 import { HTTP_STATUS } from "../../../constants/httpStatus";
 
 export class NotFoundError extends AppError {

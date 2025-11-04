@@ -1,4 +1,4 @@
-import { AppError } from "../errors/Apperror";
+import { AppError } from "../errors/AppError";
 
 export const formatError = (err: unknown) => {
   if (err instanceof AppError) {
