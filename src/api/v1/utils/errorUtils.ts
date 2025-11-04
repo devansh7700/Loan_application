@@ -9,7 +9,7 @@ export const formatError = (err: unknown) => {
     };
   }
 
-  // fallback for unknown errors
+
   return {
     message: "Internal server error",
     statusCode: 500,
