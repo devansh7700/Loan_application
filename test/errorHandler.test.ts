@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
-import { AppError } from "../api/v1/errors/AppError";
-import { errorHandler } from "../api/v1/middleware/errorHandler";
+import { AppError } from "../src/api/v1/errors/AppError";
+import { errorHandler } from "../src/api/v1/middleware/errorHandler";
 
 describe("Global Error Handling Middleware", () => {
   it("should format AppError correctly", () => {
