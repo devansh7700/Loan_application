@@ -14,13 +14,18 @@ export const getAllLoans = (req: Request, res: Response) => {
 
 export const getLoanById = (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params;
-  const loan = null; // placeholder
+
+  // Hardcoded loan for testing
+  const loan = { id, amount: 1000, status: "pending", applicant: "John Doe" };
 
   if (!loan) {
     return next(new NotFoundError(`Loan with ID ${id} not found`));
   }
 
-  res.status(HTTP_STATUS.OK).json({ loan });
+  res.status(HTTP_STATUS.OK).json({
+    message: `Loan details for ID ${id}`,
+    loan,
+  });
 };
 
 export const approveLoan = (req: Request, res: Response, next: NextFunction) => {

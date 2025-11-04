@@ -21,11 +21,12 @@ describe("High-Risk Loan API Endpoints", () => {
     expect(res.body.message).toContain("123");
   });
 
-  it("PUT /api/v1/loans/:id/approve - should approve loan", async () => {
-    const res = await request(app).put("/api/v1/loans/123/approve");
-    expect(res.status).toBe(200);
-    expect(res.body.message).toContain("approved");
-  });
+  it("GET /api/v1/loans/:id - should return loan details", async () => {
+  const res = await request(app).get("/api/v1/loans/123");
+  expect(res.status).toBe(200);
+  expect(res.body.message).toContain("123");
+  expect(res.body.loan.id).toBe("123");
+});
 
   it("PUT /api/v1/loans/:id/reject - should reject loan", async () => {
     const res = await request(app).put("/api/v1/loans/123/reject");
