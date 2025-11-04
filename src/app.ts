@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import loanRoutes from "./api/v1/routes/loanRoutes";
+import { errorHandler } from "./api/v1/middleware/errorHandler";
 
 const app = express();
 
@@ -10,6 +11,9 @@ app.use(morgan("dev"));
 
 // Routes
 app.use("/api/v1", loanRoutes);
+
+// global error handler
+app.use(errorHandler);
 
 // Root route
 app.get("/", (req, res) => {
