@@ -4,6 +4,7 @@ import loanRoutes from "./api/v1/routes/loanRoutes";
 import { errorHandler } from "./api/v1/middleware/errorHandler";
 import { loggerMiddleware } from "./api/v1/middleware/loggerMiddleware";
 import userRoutes from "./api/v1/routes/userroutes";
+import roleRoutes from "./api/v1/routes/roleRoutes";
 
 const app = express();
 
@@ -19,6 +20,8 @@ app.use("/api/v1", loanRoutes);
 app.use(errorHandler);
 
 app.use("/api/v1/users", userRoutes);
+
+app.use("/api/v1/roles", roleRoutes);
 
 // Root route
 app.get("/", (req, res) => {
