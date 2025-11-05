@@ -1,0 +1,6 @@
+# Ignore Firebase service account key
+src/config/serviceAccountKey.json
+
+# Ignore logs and other sensitive files
+logs/
+*.log
