@@ -3,7 +3,7 @@ import admin from "../../../config/firebase";
 import { AppError } from "../errors/AppError";
 import { HTTP_STATUS } from "../../../constants/httpStatus";
 
-export const authenticateUser = async (req: Request, res: Response, next: NextFunction) => {
+export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const authHeader = req.headers.authorization;
 

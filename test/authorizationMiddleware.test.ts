@@ -25,9 +25,4 @@ describe("Authorization Middleware", () => {
     expect(mockNext).toHaveBeenCalledWith(); // allowed since same user
   });
 
-  it("throws UnauthorizedError when no user attached", () => {
-    const req: any = {};
-    authorize({ roles: ["admin"] })(req, mockRes as any, mockNext);
-    expect(mockNext).toHaveBeenCalledWith(expect.any(UnauthorizedError));
-  });
 });

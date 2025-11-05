@@ -1,4 +1,4 @@
-import { AppError, NotFoundError, ForbiddenError, BadRequestError, UnauthorizedError } from "../src/api/v1/errors/AppError";
+import { NotFoundError, ForbiddenError, BadRequestError, UnauthorizedError } from "../src/api/v1/errors/AppError";
 
 import { HTTP_STATUS } from "../src/constants/httpStatus";
 

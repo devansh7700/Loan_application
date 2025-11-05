@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import admin from "../../../config/firebase";
 
-// ✅ Set a custom claim (assign role)
+//  Set a custom claim (assign role)
 export const assignUserRole = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { uid, role } = req.body;
@@ -20,7 +20,7 @@ export const assignUserRole = async (req: Request, res: Response, next: NextFunc
   }
 };
 
-// ✅ Retrieve custom claims for a user
+//  Retrieve custom claims for a user
 export const getUserRole = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { uid } = req.params;

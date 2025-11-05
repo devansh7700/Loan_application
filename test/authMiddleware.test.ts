@@ -1,4 +1,4 @@
-import { authenticateUser } from "../src/api/v1/middleware/authMiddleware";
+import { authMiddleware } from "../src/api/v1/middleware/authMiddleware";
 import admin from "../src/config/firebase";
 import { AppError } from "../src/api/v1/errors/AppError";
 import { HTTP_STATUS } from "../src/constants/httpStatus";
@@ -26,7 +26,7 @@ describe("Authentication Middleware", () => {
 
     const req: any = mockRequest("validToken");
 
-    await authenticateUser(req, mockResponse, mockNext);
+    await authMiddleware(req, mockResponse, mockNext);
 
     expect(mockVerify).toHaveBeenCalledWith("validToken");
     expect(req.user.uid).toBe("user123");
@@ -35,7 +35,7 @@ describe("Authentication Middleware", () => {
 
   it("should handle missing token", async () => {
     const req: any = mockRequest();
-    await authenticateUser(req, mockResponse, mockNext);
+    await authMiddleware(req, mockResponse, mockNext);
 
     const error = mockNext.mock.calls[0][0] as AppError;
     expect(error).toBeInstanceOf(AppError);
@@ -49,7 +49,7 @@ describe("Authentication Middleware", () => {
 
     const req: any = mockRequest("badToken");
 
-    await authenticateUser(req, mockResponse, mockNext);
+    await authMiddleware(req, mockResponse, mockNext);
 
     const error = mockNext.mock.calls[0][0] as AppError;
     expect(error.message).toBe("Authentication failed");
