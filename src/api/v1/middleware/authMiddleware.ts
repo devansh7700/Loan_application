@@ -4,6 +4,7 @@ import { AppError } from "../errors/AppError";
 import { HTTP_STATUS } from "../../../constants/httpStatus";
 
 export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
+  
   try {
     const authHeader = req.headers.authorization;
 

@@ -1,6 +1,13 @@
 import request from "supertest";
 import app from "../src/app";
 
+jest.mock("../src/api/v1/middleware/authMiddleware", () => ({
+  authMiddleware: (req: any, res: any, next: any) => {
+    req.user = { uid: "testUser", role: "admin" };
+    next();
+  },
+}));
+
 describe("High-Risk Loan API Endpoints", () => {
 
   it("GET /api/v1/loans - should return list of loans", async () => {

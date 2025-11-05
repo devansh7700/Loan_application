@@ -7,8 +7,9 @@ const router = Router();
 router.post("/loans", createLoan);
 router.get("/loans", getAllLoans);
 router.get("/loans/:id", getLoanById);
-router.put("/loans/:id/approve", approveLoan);
-router.put("/loans/:id/reject", rejectLoan);
-router.get("/", authorize({ roles: ["admin", "officer"] }), getAllLoans);
+
+//Protected Endpoints
 router.put("/:id/approve", authorize({ roles: ["officer"] }), approveLoan);
+router.put("/:id/reject", authorize({ roles: ["officer"] }), rejectLoan);
+
 export default router;
